@@ -86,7 +86,7 @@ ul  { list-style: none; }
 }
 
 .nav__logo-img {
-  height: 44px;
+  height: 50px;
   width: auto;
   display: block;
 
@@ -152,6 +152,8 @@ ul  { list-style: none; }
   z-index: 1;
   max-width: 700px;
   animation: fadeUp 1.2s var(--ease-out) both;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .hero__eyebrow {
