@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+title: Work
+description: "Photography series by WRONGORIGIN"
+---
+
+<section class="archive">
+  <div class="archive__header">
+    <h1 class="archive__title">Work</h1>
+    <p class="archive__count">{{ collections.projects | length }} Series</p>
+  </div>
+
+  <div class="archive__grid">
+    {% for project in collections.projects %}
+    <a href="{{ project.url }}" class="archive__item" style="--i: {{ loop.index }}">
+      <div class="archive__img-wrap">
+        <img
+          src="{{ project.data.cover or '/images/placeholder.jpg' }}"
+          alt="{{ project.data.title }}"
+          class="archive__img"
+          loading="lazy"
+        />
+        <div class="archive__overlay"></div>
+      </div>
+      <div class="archive__info">
+        <span class="archive__num">{{ loop.index | string | padStart(2, '0') }}</span>
+        <div>
+          <h2 class="archive__name">{{ project.data.title }}</h2>
+          <p class="archive__loc">{{ project.data.location }} &mdash; {{ project.data.year }}</p>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>

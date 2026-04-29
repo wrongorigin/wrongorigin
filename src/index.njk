@@ -1,0 +1,59 @@
+---
+layout: layouts/base.njk
+title: ""
+description: "WRONGORIGIN — Photography portfolio"
+---
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__content">
+    <p class="hero__eyebrow">Photography</p>
+    <h1 class="hero__title">WRONG<br><em>ORIGIN</em></h1>
+    <p class="hero__sub">Images from places light forgot.</p>
+    <a href="/projects/" class="hero__cta">View Work</a>
+  </div>
+  <div class="hero__scroll-hint">
+    <span>Scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<!-- FEATURED SERIES -->
+<section class="series">
+  <div class="series__header">
+    <h2 class="series__heading">Selected Series</h2>
+    <a href="/projects/" class="series__all">All work →</a>
+  </div>
+
+  <div class="series__grid">
+    {% for project in collections.projects | slice(0, 4) %}
+    <a href="{{ project.url }}" class="series__item" style="--i: {{ loop.index }}">
+      <div class="series__img-wrap">
+        <img
+          src="{{ project.data.cover or '/images/placeholder.jpg' }}"
+          alt="{{ project.data.title }}"
+          class="series__img"
+          loading="lazy"
+        />
+        <div class="series__overlay"></div>
+      </div>
+      <div class="series__meta">
+        <span class="series__num">0{{ loop.index }}</span>
+        <h3 class="series__title">{{ project.data.title }}</h3>
+        <p class="series__location">{{ project.data.location }}</p>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement">
+  <div class="statement__inner">
+    <p class="statement__text">
+      Every frame is a negotiation between<br>
+      <em>what is seen</em> and what remains hidden.
+    </p>
+  </div>
+</section>

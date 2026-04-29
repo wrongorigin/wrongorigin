@@ -1,0 +1,56 @@
+---
+layout: layouts/base.njk
+---
+
+<article class="project">
+
+  <header class="project__header">
+    <a href="/projects/" class="project__back">← Back</a>
+    <div class="project__meta">
+      <h1 class="project__title">{{ title }}</h1>
+      <div class="project__details">
+        <span>{{ location }}</span>
+        <span>{{ year }}</span>
+        <span>{{ images | length }} Images</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="project__hero">
+    <img src="{{ cover }}" alt="{{ title }}" class="project__hero-img" />
+  </div>
+
+  <div class="project__body">
+    <div class="project__statement">
+      {{ content | safe }}
+    </div>
+  </div>
+
+  {% if images %}
+  <div class="project__gallery">
+    {% for img in images %}
+    <figure class="project__figure" style="--i: {{ loop.index }}">
+      <img
+        src="{{ img.src }}"
+        alt="{{ img.alt or title }}"
+        class="project__photo"
+        loading="lazy"
+      />
+      {% if img.caption %}
+      <figcaption class="project__caption">{{ img.caption }}</figcaption>
+      {% endif %}
+    </figure>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <nav class="project__nav">
+    {% if previousPost %}
+    <a href="{{ previousPost.url }}" class="project__prev">← {{ previousPost.data.title }}</a>
+    {% endif %}
+    {% if nextPost %}
+    <a href="{{ nextPost.url }}" class="project__next">{{ nextPost.data.title }} →</a>
+    {% endif %}
+  </nav>
+
+</article>
