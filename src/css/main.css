@@ -86,7 +86,7 @@ ul  { list-style: none; }
 }
 
 .nav__logo-img {
-  height: 32px;
+  height: 44px;
   width: auto;
   display: block;
 
@@ -730,4 +730,6 @@ ul  { list-style: none; }
   height: auto;
   width: clamp(300px, 50vw, 700px);
   object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
