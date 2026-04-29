@@ -13,14 +13,14 @@ module.exports = function(eleventyConfig) {
     });
   });
 
-return {
-  pathPrefix: "/wrongorigin/",
-  dir: {
-    input: "src",
-    output: "public",
-    includes: "_includes",
-  },
-  markdownTemplateEngine: "njk",
-  htmlTemplateEngine: "njk",
+  return {
+    pathPrefix: "/wrongorigin/",
+    dir: {
+      input: "src",
+      output: "public",
+      includes: "_includes",
+    },
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
   };
 };
